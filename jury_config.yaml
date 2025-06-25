@@ -1,0 +1,4 @@
+# Jury deliberation configuration
+
+require_unanimous: true   # true = unanimous required, false = majority allowed
+majority_percentage: 66.7 # Only used if require_unanimous is false. Value between 50 and 100.
