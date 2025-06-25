@@ -1,0 +1,58 @@
+jury_member_1:
+  age: 35 to 39 years
+  biography: Casey Brown is a 37-year-old maintenance and repair worker from Pennsylvania.
+    He holds a bachelor's degree and earns between $100,000 and $124,999 annually.
+    Casey, who is White and Catholic, currently serves as a juror despite being reluctant
+    to participate. His primary goal is to have the case closed as soon as possible.
+  education: Bachelor's degree
+  first_name: Casey
+  gender: Male
+  goal: Have the case closed as soon as possible
+  income: $100,000 to $124,999
+  last_name: Brown
+  occupation: Maintenance and repair workers, general
+  race: White alone
+  religion: Catholic
+  role: Juror that is forced to participate
+  state: Pennsylvania
+jury_member_2:
+  age: 67 to 69 years
+  biography: Mitchell Johnson is a 67 to 69-year-old lifelong resident of Ohio. A
+    high school graduate, Mitchell worked for many years as a production worker before
+    retiring. He identifies as White and has an annual income between $20,000 and
+    $24,999. Mitchell is not affiliated with any particular religion and values honesty
+    and integrity above all, expressing a strong commitment to ensuring that the truth
+    is discovered, regardless of how long it takes. Now serving as a juror with ample
+    time to dedicate, Mitchell brings his work ethic and sense of fairness to his
+    civic duties.
+  education: High school graduate (includes equivalency)
+  first_name: Mitchell
+  gender: Male
+  goal: Have the truth found out no matter the duration
+  income: $20,000 to $24,999
+  last_name: Johnson
+  occupation: Other production workers
+  race: White alone
+  religion: Unaffiliated
+  role: Juror with lots of time available
+  state: Ohio
+jury_member_3:
+  age: 62 to 64 years
+  biography: Heather Perez is a 63-year-old manager from Illinois, holding a bachelor's
+    degree and identifying as White and Protestant. With a successful career and an
+    income between $100,000 and $124,999, Heather is known for her active presence
+    and desire to be noticed. As a juror, she is particularly interested in drawing
+    attention to herself, often favoring prolonged deliberations even in straightforward
+    cases to remain at the center of events.
+  education: Bachelor's degree
+  first_name: Heather
+  gender: Female
+  goal: Seek as much attention as possible. Therefore interested in prolonging the
+    case even if it is easy
+  income: $100,000 to $124,999
+  last_name: Perez
+  occupation: Managers, all other
+  race: White alone
+  religion: Protestant
+  role: Attention seeking juror
+  state: Illinois
