@@ -4,3 +4,4 @@ langgraph~=0.5.2
 langchain-core~=0.3.68
 langchain-openai~=0.3.27
 langchain-google-genai~=2.1.7
+python-dotenv~=1.1.1
