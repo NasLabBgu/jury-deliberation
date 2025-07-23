@@ -1,26 +1,28 @@
 # LangGraph Jury Deliberation Simulation
 
-A sophisticated jury deliberation simulation system that uses Large Language Models (LLMs) to simulate realistic jury discussions and verdict decisions. The system is built using LangGraph and LangChain, supporting multiple LLM providers.
+A jury deliberation simulation system that uses Large Language Models (LLMs) to simulate realistic jury discussions and verdict decisions. 
+The system is built using LangGraph, supporting multiple LLM providers.
 
 ## Overview
 
-This project simulates jury deliberations by creating AI-powered jury members with distinct backgrounds and personalities. Each juror analyzes case evidence, participates in multi-round discussions, and ultimately votes on a verdict. The system is designed for social research, legal education, and exploring group decision-making dynamics.
+This project simulates jury deliberations by creating AI-powered jury members with distinct backgrounds and personalities. 
+Each juror analyzes case evidence, participates in multi-round discussions, and ultimately votes on a verdict.
 
 ## Features
 
 - **Multi-round deliberations**: Configure the number of discussion rounds before final verdict
 - **Diverse jury personas**: Load jury members from YAML files with detailed backgrounds
-- **Multiple case scenarios**: Support for various criminal cases including scenarios from "My Cousin Vinny"
+- **Multiple case scenarios**: Support for various cases (including scenarios based of "My Cousin Vinny")
 - **LLM flexibility**: Works with OpenAI GPT-4 or Google Gemini models
 - **Structured output**: Saves deliberations as formatted markdown files with speaker colors
 - **Configurable jury size**: Simulate deliberations with 2-12 jury members
-- **Intermediate verdict tracking**: Each juror declares their current stance (GUILTY/NOT GUILTY/UNDECIDED) at the end of each deliberation round, allowing tracking of opinion evolution
+- **Intermediate verdict tracking**: Each juror declares their current stance (GUILTY/NOT GUILTY) at the end of each deliberation round, allowing tracking of opinion evolution
 
 ## Installation
 
 1. Install required packages:
 ```bash
-pip install langgraph langchain-openai langchain-core langchain-google-genai pyyaml
+pip install -r requirements.txt
 ```
 
 ## Configuration
@@ -49,14 +51,14 @@ llm = ChatGoogleGenerativeAI(
 
 ```
 .
-├── langgraph_jury_deliberation.ipynb  # Main notebook
-├── jurors.yaml                         # Detailed jury member profiles
-├── agents.yaml                         # Alternative jury configurations
-├── old_and_young.yaml                  # Age-diverse jury pool
-├── religious_and_secular.yaml         # Religion-diverse jury pool  
-├── republican_and_democratic.yaml     # Political-diverse jury pool
-├── Scenario 1.txt                     # Case scenarios (3 variations)
-└── My_Cousin_Vinny_Trial_Script.txt  # Full trial transcript
+├── langgraph_jury_deliberation.ipynb       # Main code
+├── jurors/
+│   ├── jurors.yaml                         # Detailed jury member profiles
+│   ├── old_and_young.yaml                  # Age-diverse jury pool
+│   ├── religious_and_secular.yaml          # Religion-diverse jury pool  
+│   ├── republican_and_democratic.yaml      # Political-diverse jury pool
+├── cases/
+└── ├── Scenario 1.txt                      # Case scenarios (3 variations)
 ```
 
 ## Usage
@@ -66,8 +68,8 @@ llm = ChatGoogleGenerativeAI(
 ```python
 # Run a complete deliberation with one line
 run_deliberation(
-    jury_file='republican_and_democratic.yaml',
-    case_file="Scenario 1.txt",
+    jury_file='jurors/republican_and_democratic.yaml',
+    case_file="cases/Scenario 1.txt",
     scenario_number=1,
     total_rounds=3,
     save_to_file=True
@@ -91,6 +93,7 @@ initialize_with_case("Scenario 1.txt", scenario_number=1)
 main(interactive=False, save_to_file=True)
 ```
 
+
 ### Interactive Mode
 
 Run the system in interactive mode for manual control:
@@ -108,6 +111,7 @@ Available commands:
 - `deliberate` - Start deliberation with loaded case
 - `deliberate nosave` - Run without saving to file
 - `quit` - Exit
+
 
 ## Jury Member Format
 
@@ -131,7 +135,7 @@ jury_member_1:
   goal: Have the case closed as soon as possible
 ```
 
-### Simplified Structure (agents.yaml)
+### Simplified Structure
 ```yaml
 jury_member_1:
   role: Juror in the case of {topic}
@@ -159,7 +163,7 @@ Deliberations are saved as markdown files with:
 - Overall jury decision (Guilty/Not Guilty/Hung Jury)
 - Color-coded speakers for easy reading
 
-Each juror's response in the deliberation rounds includes their current stance declaration in the format `[Current stance: GUILTY/NOT GUILTY/UNDECIDED]`. 
+Each juror's response in the deliberation rounds includes their current stance declaration in the format `[Current stance: GUILTY/NOT GUILTY]`. 
 This allows tracking of how individual juror opinions evolve throughout the multi-round deliberation process.
 
 Example filename: `deliberation_republican_and_democratic_Scenario_1_scenario1_20250611_150544.md`
@@ -196,19 +200,11 @@ Create text files with case details. Use "Scenario X:" headers for multiple scen
 ### Customizing Deliberation Logic
 Modify the `should_continue()` function to change flow control, or update jury member prompts in `create_jury_node()`.
 
-## Research Applications
-
-This system is designed for:
-- Social psychology research on group decision-making
-- Legal education and training
-- Bias detection in jury deliberations
-- Testing the impact of jury composition on verdicts
-- Exploring the role of demographic factors in legal decisions
 
 ## Troubleshooting
 
 - **API Key Issues**: Ensure your API key is correctly set and has sufficient credits
-- **Memory Issues**: For large juries or many rounds, consider using a more powerful machine
+- **Memory Issues**: For large juries or many rounds, consider using a more powerful model
 - **File Not Found**: Check that all YAML and case files are in the correct directory
 - **Slow Performance**: Gemini free tier has rate limits; consider upgrading or using OpenAI
 
