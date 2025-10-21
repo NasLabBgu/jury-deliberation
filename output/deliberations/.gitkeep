@@ -1,2 +1,0 @@
-# This file ensures the deliberations directory is tracked in git
-# The actual deliberation files (*.md) are ignored by .gitignore
